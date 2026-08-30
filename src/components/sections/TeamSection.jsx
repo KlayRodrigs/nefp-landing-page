@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SITE_DATA } from '../../data/content';
+import { team } from '../../data/team';
 import { SectionHeading } from '../ui/SectionHeading';
 import { MemberCard } from '../ui/MemberCard';
 import { MemberModal } from '../ui/MemberModal';
@@ -19,8 +19,8 @@ export function TeamSection() {
   const [selectedMember, setSelectedMember] = useState(null);
 
   const filteredMembers = activeTab === 'todos'
-    ? SITE_DATA.team
-    : SITE_DATA.team.filter(m => m.category === activeTab);
+    ? team
+    : team.filter(m => m.category === activeTab);
 
   return (
     <section id="equipe" className="py-20 md:py-28 bg-white relative">

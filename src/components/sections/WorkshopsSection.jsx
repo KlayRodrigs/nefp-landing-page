@@ -1,5 +1,5 @@
 import React from 'react';
-import { SITE_DATA } from '../../data/content';
+import { workshops } from '../../data/workshops';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Badge } from '../ui/Badge';
 import { Calendar, MapPin, CheckCircle2 } from 'lucide-react';
@@ -16,7 +16,7 @@ export function WorkshopsSection() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {SITE_DATA.workshops.map((ws) => (
+          {workshops.map((ws) => (
             <div
               key={ws.id}
               className="glass-card rounded-3xl overflow-hidden flex flex-col justify-between group transition-all duration-300"

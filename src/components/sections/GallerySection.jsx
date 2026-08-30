@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SITE_DATA } from '../../data/content';
+import { gallery } from '../../data/gallery';
 import { SectionHeading } from '../ui/SectionHeading';
 import { LightboxModal } from '../ui/LightboxModal';
 import { Image as ImageIcon, ZoomIn } from 'lucide-react';
@@ -11,8 +11,8 @@ export function GallerySection() {
   const [currentIdx, setCurrentIdx] = useState(null);
 
   const filteredImages = selectedCat === 'Todos'
-    ? SITE_DATA.gallery
-    : SITE_DATA.gallery.filter((img) => img.category === selectedCat);
+    ? gallery
+    : gallery.filter((img) => img.category === selectedCat);
 
   const handlePrev = () => {
     setCurrentIdx((prev) => (prev > 0 ? prev - 1 : filteredImages.length - 1));

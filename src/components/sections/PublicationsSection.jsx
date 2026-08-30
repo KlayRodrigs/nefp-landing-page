@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SITE_DATA } from '../../data/content';
+import { publications } from '../../data/publications';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Badge } from '../ui/Badge';
 import { Button } from '../ui/Button';
@@ -9,7 +9,7 @@ export function PublicationsSection() {
   const [searchTerm, setSearchTerm] = useState('');
   const [copiedId, setCopiedId] = useState(null);
 
-  const filteredPubs = SITE_DATA.publications.filter((p) => {
+  const filteredPubs = publications.filter((p) => {
     const text = `${p.title} ${p.authors} ${p.journal} ${p.tags.join(' ')}`.toLowerCase();
     return text.includes(searchTerm.toLowerCase());
   });

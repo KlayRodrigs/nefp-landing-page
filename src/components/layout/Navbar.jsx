@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NAV_LINKS } from '../../data/navigation';
 import { Button } from '../ui/Button';
 import { Menu, X, Mail } from 'lucide-react';
+import { institution } from '../../data/institution';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -83,17 +84,17 @@ export function Navbar() {
         </nav>
 
         {/* Desktop Quick Action */}
-        {/* <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <Button
             as="a"
-            href="#contato"
+            href={`mailto:${institution.email}`}
             variant="primary"
             size="sm"
             icon={Mail}
           >
             Fale Conosco
           </Button>
-        </div> */}
+        </div>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -126,7 +127,7 @@ export function Navbar() {
             <div className="pt-3 mt-2 border-t border-slate-100">
               <Button
                 as="a"
-                href="#contato"
+                href={`mailto:${institution.email}`}
                 onClick={() => setMobileMenuOpen(false)}
                 variant="primary"
                 size="md"

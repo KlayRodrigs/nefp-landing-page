@@ -1,5 +1,6 @@
 import React from 'react';
-import { SITE_DATA } from '../../data/content';
+import { brandConcept } from '../../data/brandConcept';
+import { timeline } from '../../data/timeline';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Badge } from '../ui/Badge';
 import { Leaf, Cog, Sparkles, Clock } from 'lucide-react';
@@ -43,11 +44,11 @@ export function AboutSection() {
               O significado por trás dos símbolos
             </h3>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              {SITE_DATA.brandConcept.description}
+              {brandConcept.description}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              {SITE_DATA.brandConcept.pillars.map((pillar, idx) => {
+              {brandConcept.pillars.map((pillar, idx) => {
                 const IconComponent = pillarIcons[pillar.icon] || Leaf;
                 return (
                   <div
@@ -85,7 +86,7 @@ export function AboutSection() {
           </div>
 
           <div className="relative border-l-2 border-emerald-300 ml-4 sm:ml-32 space-y-10">
-            {SITE_DATA.timeline.map((item, idx) => (
+            {timeline.map((item, idx) => (
               <div key={idx} className="relative pl-6 sm:pl-8">
                 {/* Year Marker on Left for Desktop */}
                 <div className="hidden sm:block absolute -left-32 top-0 text-right w-24 font-extrabold text-nefp-700 text-base">

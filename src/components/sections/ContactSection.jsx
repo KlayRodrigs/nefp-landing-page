@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SITE_DATA } from '../../data/content';
+import { institution } from '../../data/institution';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
 import { Mail, MapPin, Send, CheckCircle2, User } from 'lucide-react';
@@ -47,7 +47,7 @@ export function ContactSection() {
                   <MapPin className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="block text-white font-semibold">Endereço:</strong>
-                    <span>{SITE_DATA.institution.address}</span>
+                    <span>{institution.address}</span>
                   </div>
                 </div>
 
@@ -56,10 +56,10 @@ export function ContactSection() {
                   <div>
                     <strong className="block text-white font-semibold">E-mail:</strong>
                     <a
-                      href={`mailto:${SITE_DATA.institution.email}`}
+                      href={`mailto:${institution.email}`}
                       className="text-emerald-300 hover:underline"
                     >
-                      {SITE_DATA.institution.email}
+                      {institution.email}
                     </a>
                   </div>
                 </div>
@@ -93,7 +93,7 @@ export function ContactSection() {
                     Obrigado pelo seu envio!
                   </h3>
                   <p className="text-slate-600 text-sm max-w-md mx-auto">
-                    Sua mensagem foi enviada para a coordenação do NEFP ({SITE_DATA.institution.email}). Responderemos o mais breve possível.
+                    Sua mensagem foi enviada para a coordenação do NEFP ({institution.email}). Responderemos o mais breve possível.
                   </p>
                   <Button
                     variant="outline"

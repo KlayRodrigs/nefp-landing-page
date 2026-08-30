@@ -1,5 +1,5 @@
 import React from 'react';
-import { SITE_DATA } from '../../data/content';
+import { opportunities } from '../../data/opportunities';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
 import { UserPlus, ArrowRight } from 'lucide-react';
@@ -11,12 +11,12 @@ export function OpportunitiesSection() {
         <SectionHeading
           badge="Carreira Acadêmica"
           badgeIcon={UserPlus}
-          title={SITE_DATA.opportunities.title}
-          subtitle={SITE_DATA.opportunities.subtitle}
+          title={opportunities.title}
+          subtitle={opportunities.subtitle}
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {SITE_DATA.opportunities.levels.map((lvl, idx) => (
+          {opportunities.levels.map((lvl, idx) => (
             <div
               key={idx}
               className="glass-card p-8 rounded-3xl flex flex-col justify-between hover:border-emerald-300 transition-all duration-300"

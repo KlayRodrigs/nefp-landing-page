@@ -33,8 +33,20 @@ landing-page/
 │   │   ├── sections/       # Hero, Sobre, Pesquisa, Equipe, Publicações, Eventos, Galeria, etc.
 │   │   └── ui/             # Botões, Badges, Modais (Perfil e Lightbox) e Cards
 │   ├── data/
-│   │   ├── content.js      # Dataset estruturado de membros, publicações e projetos
-│   │   └── navigation.js   # Links e âncoras de navegação
+│   │   ├── institution.js      # Dados da instituição e coordenação
+│   │   ├── stats.js            # Métricas e contadores de impacto
+│   │   ├── brandConcept.js     # Conceito e pilares da logomarca
+│   │   ├── timeline.js         # Linha do tempo histórica
+│   │   ├── researchLines.js    # Linhas de pesquisa científica
+│   │   ├── projects.js         # Projetos em destaque (PIBITI, BEXT)
+│   │   ├── team.js             # Membros, biografias e links Lattes
+│   │   ├── publications.js     # Artigos e publicações científicas
+│   │   ├── workshops.js        # Workshops e simpósios
+│   │   ├── gallery.js          # Imagens e legendas da galeria
+│   │   ├── fundingPartners.js  # Instituições de fomento (FACEPE, CNPq, etc.)
+│   │   ├── opportunities.js    # Chamada para novos pesquisadores
+│   │   ├── navigation.js       # Links e âncoras de navegação
+│   │   └── index.js            # Hub central de exportação dos dados
 │   ├── App.jsx             # Estrutura principal da landing page
 │   ├── main.jsx            # Ponto de entrada React
 │   └── index.css           # Configuração de temas e utilitários Tailwind

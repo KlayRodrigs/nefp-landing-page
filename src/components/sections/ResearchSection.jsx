@@ -1,5 +1,6 @@
 import React from 'react';
-import { SITE_DATA } from '../../data/content';
+import { researchLines } from '../../data/researchLines';
+import { projects } from '../../data/projects';
 import { SectionHeading } from '../ui/SectionHeading';
 import { ProjectCard } from '../ui/ProjectCard';
 import { Microscope, Sparkles } from 'lucide-react';
@@ -17,7 +18,7 @@ export function ResearchSection() {
 
         {/* Research Lines Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
-          {SITE_DATA.researchLines.map((line) => (
+          {researchLines.map((line) => (
             <ProjectCard key={line.id} research={line} />
           ))}
         </div>
@@ -31,26 +32,26 @@ export function ResearchSection() {
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-4">
-              {SITE_DATA.projects[0].title}
+              {projects[0].title}
             </h3>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-              {SITE_DATA.projects[0].description}
+              {projects[0].description}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300 pt-4 border-t border-white/10">
               <div>
-                <strong className="text-white">Orientador:</strong> {SITE_DATA.projects[0].leader}
+                <strong className="text-white">Orientador:</strong> {projects[0].leader}
               </div>
               <div>
-                <strong className="text-white">Bolsista PIBITI:</strong> {SITE_DATA.projects[0].fellow}
+                <strong className="text-white">Bolsista PIBITI:</strong> {projects[0].fellow}
               </div>
               <div>
                 <strong className="text-white">Fomento:</strong> CNPq / UFRPE
               </div>
               <div>
                 <strong className="text-white">Status:</strong>{' '}
-                <span className="text-emerald-400 font-bold">{SITE_DATA.projects[0].status}</span>
+                <span className="text-emerald-400 font-bold">{projects[0].status}</span>
               </div>
             </div>
           </div>

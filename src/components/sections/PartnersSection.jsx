@@ -1,5 +1,5 @@
 import React from 'react';
-import { SITE_DATA } from '../../data/content';
+import { fundingPartners } from '../../data/fundingPartners';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Award } from 'lucide-react';
 
@@ -15,7 +15,7 @@ export function PartnersSection() {
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SITE_DATA.fundingPartners.map((partner) => (
+          {fundingPartners.map((partner) => (
             <div
               key={partner.id}
               className="glass-card p-6 rounded-2xl flex flex-col justify-between text-center hover:border-emerald-300 transition-all duration-300"

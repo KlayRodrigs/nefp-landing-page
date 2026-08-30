@@ -1,5 +1,7 @@
 import React from 'react';
-import { SITE_DATA } from '../../data/content';
+import { institution } from '../../data/institution';
+import { developer } from '../../data/developer';
+import { fundingPartners } from '../../data/fundingPartners';
 import { NAV_LINKS } from '../../data/navigation';
 import { MapPin, Mail, Globe, ArrowUp } from 'lucide-react';
 
@@ -30,7 +32,7 @@ export function Footer() {
             </p>
             <div className="text-xs text-slate-400">
               <span className="font-semibold text-white">Líder: </span>
-              {SITE_DATA.institution.coordinator} ({SITE_DATA.institution.cnpqLevel})
+              {institution.coordinator} ({institution.cnpqLevel})
             </div>
           </div>
 
@@ -60,7 +62,7 @@ export function Footer() {
               Fomento & Parcerias
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
-              {SITE_DATA.fundingPartners.map((p) => (
+              {fundingPartners.map((p) => (
                 <li key={p.id} className="flex items-start gap-1.5">
                   <span className="text-emerald-400 font-bold">✓</span>
                   <span>
@@ -78,20 +80,29 @@ export function Footer() {
             </h4>
             <div className="flex items-start gap-2.5 text-xs text-slate-400">
               <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-              <span>{SITE_DATA.institution.address}, Serra Talhada - PE</span>
+              <span>{institution.address}, Serra Talhada - PE</span>
             </div>
             <div className="flex items-center gap-2.5 text-xs text-slate-400">
               <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
               <a
-                href={`mailto:${SITE_DATA.institution.email}`}
+                href={`mailto:${institution.email}`}
                 className="hover:text-emerald-400 transition-colors"
               >
-                {SITE_DATA.institution.email}
+                {institution.email}
               </a>
             </div>
             <div className="flex items-center gap-2.5 text-xs text-slate-400">
               <Globe className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>Universidade Federal Rural de Pernambuco</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-xs text-slate-400">
+              <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
+              <a
+                href={`mailto:${developer.email}`}
+                className="hover:text-emerald-400 transition-colors"
+              >
+                Programador do site
+              </a>
             </div>
           </div>
         </div>
@@ -101,15 +112,8 @@ export function Footer() {
           <p>© {currentYear} NEFP - UFRPE - UAST. Todos os direitos reservados.</p>
           <div className="flex items-center gap-4">
             <span className="text-slate-400">
-              Desenvolvido com tecnologia moderna em ReactJS • PIBITI
+              Desenvolvido por {developer.name} • PIBITI
             </span>
-            <a
-              href="#inicio"
-              className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 transition-colors"
-              title="Voltar ao Topo"
-            >
-              <ArrowUp className="w-4 h-4" />
-            </a>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { SITE_DATA } from '../../data/content';
+import { institution } from '../../data/institution';
+import { stats } from '../../data/stats';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { ArrowRight, Sparkles, Award, Users } from 'lucide-react';
@@ -37,7 +38,7 @@ export function HeroSection() {
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm mb-10 text-xs sm:text-sm text-slate-700">
             <Award className="w-5 h-5 text-solar-500 shrink-0" />
             <span>
-              Liderado pelo <strong>{SITE_DATA.institution.coordinator}</strong> (Bolsista Produtividade CNPq Nível 2)
+              Liderado pelo <strong>{institution.coordinator}</strong> (Bolsista Produtividade CNPq Nível 2)
             </span>
           </div>
 
@@ -68,7 +69,7 @@ export function HeroSection() {
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full pt-8 border-t border-slate-200/70">
-            {SITE_DATA.stats.map((stat, i) => (
+            {stats.map((stat, i) => (
               <div
                 key={i}
                 className="glass-card p-5 rounded-2xl text-center flex flex-col justify-center"
