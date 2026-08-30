@@ -38,15 +38,6 @@ export function PartnersSection() {
                   {partner.description}
                 </p>
               </div>
-
-              <div className="pt-3 border-t border-slate-100">
-                <span className="text-[11px] font-bold text-nefp-700 block mb-1">
-                  Processos / Projetos:
-                </span>
-                <div className="text-[11px] text-slate-600 font-mono bg-slate-50 py-1 px-2 rounded">
-                  {partner.grantProcesses.join(' • ')}
-                </div>
-              </div>
             </div>
           ))}
         </div>

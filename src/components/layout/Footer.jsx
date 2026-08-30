@@ -66,7 +66,7 @@ export function Footer() {
                 <li key={p.id} className="flex items-start gap-1.5">
                   <span className="text-emerald-400 font-bold">✓</span>
                   <span>
-                    <strong className="text-white">{p.name}:</strong> {p.grantProcesses.join(', ')}
+                    <strong className="text-white">{p.name}</strong>
                   </span>
                 </li>
               ))}
