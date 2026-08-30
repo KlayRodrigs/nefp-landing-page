@@ -208,7 +208,7 @@ export const team = [
     id: 'mayara-martim',
     name: 'Mayara Bernardo Tavares Martim',
     role: 'Mestre em Produção Vegetal',
-    category: 'mestre',
+    category: 'mestrado',
     level: 'Mestre em Produção Vegetal (UFRPE/FACEPE)',
     image: '/images/team/mayara.jpg',
     lattesUrl: 'http://lattes.cnpq.br/',
@@ -276,5 +276,144 @@ export const team = [
       'Coautora de artigos de destaque em predição não destrutiva de cladódios de pitaia e fisiologia pós-colheita'
     ],
     disciplines: ['Fisiologia de Cactáceas', 'Adubação Orgânica', 'Tecnologia Pós-Colheita']
+  },
+  {
+    id: 'luiz-santos',
+    name: 'Luiz Odonil Gomes dos Santos',
+    role: 'Doutorando em Fitotecnia',
+    category: 'doutorando',
+    level: 'Doutorando em Fitotecnia (UFERSA)',
+    image: '/images/team/luiz.jpg',
+    lattesUrl: 'http://lattes.cnpq.br/3260109750046441',
+    bioShort: 'Engenheiro Agrônomo e Mestre em Fitotecnia pela UFERSA, com formação também em Pedagogia. Doutorando em Fitotecnia pela UFERSA, pesquisando nanoemulsão à base de mucilagem e óleo essencial de orégano para conservação pós-colheita do tomate.',
+    highlights: [
+      'Doutorado em andamento em Fitotecnia pela UFERSA, com pesquisa sobre nanoemulsão à base de mucilagem e óleo essencial de orégano como revestimento ativo para o tomate',
+      'Mestrado em Fitotecnia pela UFERSA (2016–2018), sobre sorção e dessorção do herbicida hexazinone no solo',
+      'Graduação em Agronomia pela UFERSA (1989–1994)',
+      'Licenciatura em Pedagogia com Habilitação em Química pela UVA (1999–2000)'
+    ],
+    disciplines: ['Fitotecnia', 'Química do Solo', 'Tecnologia Pós-Colheita de Hortaliças']
+  },
+  {
+    id: 'anderson-silva',
+    name: 'Anderson Rodrigo Luciano da Silva',
+    role: 'Doutorando em Fitotecnia',
+    category: 'doutorando',
+    level: 'Doutorando em Fitotecnia (UFERSA) — Bolsista CAPES',
+    image: '/images/team/anderson.jpg',
+    lattesUrl: 'http://lattes.cnpq.br/5440498052235379',
+    bioShort: 'Engenheiro Agrônomo e Mestre em Agronomia pela UFPB. Doutorando em Fitotecnia pela UFERSA, sob orientação do Prof. Dr. Adriano Simões, com pesquisa sobre quitosana e ácido ascórbico na conservação pós-colheita da pitaya.',
+    highlights: [
+      'Doutorado em andamento em Fitotecnia pela UFERSA, orientado pelo Prof. Dr. Adriano do Nascimento Simões, coorientado pelo Dr. Fred Augusto Lourêdo de Brito',
+      'Pesquisa sobre quitosana associada ao ácido ascórbico para prolongar a qualidade pós-colheita da pitaya armazenada sob refrigeração',
+      'Bolsista da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES)',
+      'Mestrado em Agronomia pela UFPB (2018–2020), sobre redução do estresse abiótico em mangueira no semiárido',
+      'Graduação em Agronomia pela UFPB (2011–2017)'
+    ],
+    disciplines: ['Fisiologia Pós-Colheita da Pitaya', 'Fruticultura do Semiárido', 'Revestimentos Comestíveis']
+  },
+  {
+    id: 'jessica-oliveira',
+    name: 'Jéssica Crhistie de Castro Granjeiro Oliveira',
+    role: 'Doutoranda em Fitotecnia',
+    category: 'doutorando',
+    level: 'Doutoranda em Fitotecnia (UFERSA) — Bolsista CAPES',
+    image: '/images/team/jessica.jpg',
+    lattesUrl: 'http://lattes.cnpq.br/8830267915036831',
+    bioShort: 'Engenheira Agrônoma e Mestra em Manejo de Solo e Água pela UFERSA. Doutoranda em Fitotecnia pela UFERSA, sob orientação do Prof. Dr. Adriano Simões, pesquisando nanopartículas de síntese verde aplicadas ao cultivo e pós-colheita do tomate.',
+    highlights: [
+      'Doutorado em andamento em Fitotecnia pela UFERSA, orientada pelo Prof. Dr. Adriano do Nascimento Simões, coorientada pelo Dr. Fred Augusto Lourêdo de Brito',
+      'Pesquisa sobre uso de nanopartículas de síntese verde no cultivo e pós-colheita de tomate',
+      'Bolsista da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES)',
+      'Mestrado em Manejo de Solo e Água pela UFERSA (2024), sobre irrigação da Moringa oleifera com água produzida sintética',
+      'Graduação em Agronomia pela UFERSA, com pesquisa sobre compartimentação de íons em sorgo sob estresse hídrico e salino'
+    ],
+    disciplines: ['Nanotecnologia Aplicada à Agricultura', 'Manejo de Solo e Água', 'Fisiologia Pós-Colheita do Tomate']
+  },
+  {
+    id: 'milena-barros',
+    name: 'Milena Emanuela de Jesus Barros',
+    role: 'Mestranda em Fitotecnia',
+    category: 'mestrando',
+    level: 'Mestranda em Fitotecnia (UFERSA) — Bolsista CAPES',
+    image: '/images/team/milena.jpg',
+    lattesUrl: 'http://lattes.cnpq.br/6504118086466429',
+    bioShort: 'Engenheira Agrônoma pela UEPB e técnica em Agropecuária. Mestranda em Fitotecnia pela UFERSA, sob orientação do Prof. Dr. Adriano Simões, desenvolvendo pesquisa sobre revestimentos comestíveis à base de mucilagem e pectina para conservação pós-colheita da pitaia.',
+    highlights: [
+      'Mestrado em Fitotecnia (2025–2027) pela UFERSA, orientada pelo Prof. Dr. Adriano do Nascimento Simões, coorientada pelo Dr. Fred Augusto Lourêdo de Brito',
+      'Dissertação sobre revestimentos comestíveis à base de mucilagem e pectina para pitaia minimamente processada',
+      'Bolsista da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES)',
+      'Graduação em Agronomia pela UEPB (2019–2024)',
+      'Técnica em Agropecuária pela Escola ANOP, Assaré-CE'
+    ],
+    disciplines: ['Revestimentos Comestíveis', 'Tecnologia Pós-Colheita da Pitaia', 'Fisiologia Vegetal']
+  },
+  {
+    id: 'vitoria-machado',
+    name: 'Vitória Letícia da Silva Nunes Machado',
+    role: 'Mestranda em Produção Vegetal',
+    category: 'mestrando',
+    level: 'Mestranda em Produção Vegetal (UFRPE/UAST) — Bolsista CNPq',
+    image: '/images/team/vitoria.jpg',
+    lattesUrl: 'http://lattes.cnpq.br/8555786029476330',
+    bioShort: 'Graduada em Ciências Biológicas pela UFRPE/UAST. Mestranda em Produção Vegetal, desenvolvendo pesquisa sobre filmes biopoliméricos de palma forrageira aplicados à conservação pós-colheita da goiaba.',
+    highlights: [
+      'Mestrado em Produção Vegetal (março/2025 – fevereiro/2027) na UFRPE/UAST, sob orientação do Prof. Dr. Adriano do Nascimento Simões',
+      'Pesquisa sobre caracterização de filmes biopoliméricos de palma forrageira aplicados à qualidade pós-colheita da goiaba var. Paluma',
+      'Bolsista do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)',
+      'Graduação em Ciências Biológicas pela UFRPE/UAST (2018–2024)'
+    ],
+    disciplines: ['Biopolímeros da Palma Forrageira', 'Tecnologia Pós-Colheita da Goiaba', 'Materiais Biodegradáveis']
+  },
+  {
+    id: 'vivian-santos',
+    name: 'Vivian Soraia da Silva Santos',
+    role: 'Graduanda & Bolsista de Iniciação Científica (PIBIC/CNPq)',
+    category: 'graduacao',
+    level: 'Graduanda em Agronomia (UFRPE/UAST) & Bolsista PIBIC/CNPq',
+    image: '/images/team/vivian.jpg',
+    lattesUrl: 'http://lattes.cnpq.br/0114243537325761',
+    bioShort: 'Graduanda em Agronomia pela UFRPE/UAST e bolsista de Iniciação Científica do CNPq. Desenvolve pesquisas sobre biofilmes à base de mucilagem de cladódios de pitaia e conservação pós-colheita de frutos.',
+    highlights: [
+      'Graduação em Agronomia (em andamento) pela UFRPE/UAST, com início em 2020',
+      'Bolsista de Iniciação Científica do CNPq, com plano de trabalho sobre biofilmes à base de mucilagem de cladódios de pitaia',
+      "TCC sobre prolongamento da vida útil da goiaba 'Paluma' com refrigeração e embalagens, orientado pelo Prof. Dr. Adriano Simões e coorientado pela Dra. Valécia Nogueira Santos e Silva",
+      'Experiência em caracterização físico-química de frutos, banho ultrassônico para indução de compostos bioativos e biorevestimentos comestíveis'
+    ],
+    disciplines: ['Fisiologia e Tecnologia Pós-Colheita', 'Biofilmes de Palma e Pitaia', 'Conservação de Frutos para Exportação']
+  },
+  {
+    id: 'rafael-lima',
+    name: 'Rafael dos Santos Lima',
+    role: 'Graduando & Bolsista de Inovação Tecnológica (PIBITI)',
+    category: 'graduacao',
+    level: 'Graduando em Agronomia (UFRPE) & Bolsista PIBITI',
+    image: '/images/team/rafael.jpg',
+    lattesUrl: 'http://lattes.cnpq.br/',
+    bioShort: 'Graduando em Agronomia pela UFRPE e bolsista PIBITI. Desenvolve pesquisa sobre filmes e revestimentos comestíveis à base de mucilagem de pitaya enriquecidos com agentes bioativos naturais.',
+    highlights: [
+      'Graduação em Agronomia (em andamento) pela UFRPE',
+      'Bolsista PIBITI (ciclo 2025–2026), com plano de trabalho sobre filmes e revestimentos comestíveis de mucilagem de pitaya enriquecidos com agentes bioativos naturais',
+      'Orientador: Prof. Dr. Adriano do Nascimento Simões; Coorientadora: Dra. Valécia Nogueira Santos e Silva',
+      'Pesquisas em extração e purificação de mucilagem, formulação de biofilmes e avaliação de propriedades físico-químicas e mecânicas'
+    ],
+    disciplines: ['Biofilmes da Pitaya', 'Embalagens Sustentáveis', 'Tecnologia Pós-Colheita']
+  },
+  {
+    id: 'maria-isabel-lima',
+    name: 'Maria Isabel Ferreira de Lima',
+    role: 'Graduanda & Bolsista de Inovação Tecnológica (PIBITI)',
+    category: 'graduacao',
+    level: 'Graduanda em Agronomia (UFRPE) & Bolsista PIBITI',
+    image: '/images/team/maria-isabel.jpg',
+    lattesUrl: 'http://lattes.cnpq.br/9403425013049772',
+    bioShort: 'Graduanda em Agronomia pela UFRPE e técnica em Administração. Bolsista PIBITI, pesquisando o potencial filmogênico da mucilagem de pitaya extraída por um novo método para revestimentos comestíveis.',
+    highlights: [
+      'Graduação em Agronomia (em andamento) pela UFRPE, com início em 2023',
+      'Bolsista PIBITI (ciclo 2025–2026), com plano de trabalho sobre potencial filmogênico da mucilagem de pitaya extraída por novo método via micro-ondas',
+      'Orientador: Prof. Dr. Adriano do Nascimento Simões; Coorientadora: Mayara Bernardo Tavares Martim',
+      'Técnica em Administração pela Escola Técnica Estadual Antônio Arruda de Farias (ETE), Surubim'
+    ],
+    disciplines: ['Biopolímeros da Pitaya', 'Revestimentos Comestíveis', 'Extração de Mucilagem']
   }
 ];
