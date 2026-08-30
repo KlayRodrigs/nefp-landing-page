@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { team } from '../../data/team';
 import { SectionHeading } from '../ui/SectionHeading';
 import { MemberCard } from '../ui/MemberCard';
@@ -7,9 +7,10 @@ import { Users } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'todos', label: 'Todos os Membros' },
-  { id: 'coordenacao', label: 'Coordenação' },
-  { id: 'doutorado', label: 'Doutorandos' },
-  { id: 'mestrado', label: 'Mestrandos' },
+  { id: 'doutorado', label: 'Doutores' },
+  { id: 'doutorando', label: 'Doutorandos' },
+  { id: 'mestre', label: 'Mestres' },
+  { id: 'mestrando', label: 'Mestrandos' },
   { id: 'graduacao', label: 'Graduação & PIBITI' },
   { id: 'ex-membros', label: 'Ex-Membros' },
 ];
@@ -21,6 +22,13 @@ export function TeamSection() {
   const filteredMembers = activeTab === 'todos'
     ? team
     : team.filter(m => m.category === activeTab);
+
+  // Só mantém categorias com pelo menos 1 membro (ou a aba "todos")
+  const visibleCategories = useMemo(() => {
+    return CATEGORIES.filter(
+      (cat) => cat.id === 'todos' || team.some((m) => m.category === cat.id)
+    );
+  }, []);
 
   return (
     <section id="equipe" className="py-20 md:py-28 bg-white relative">
@@ -34,7 +42,7 @@ export function TeamSection() {
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {CATEGORIES.map((cat) => (
+          {visibleCategories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}

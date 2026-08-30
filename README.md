@@ -34,6 +34,7 @@ landing-page/
 │   │   └── ui/             # Botões, Badges, Modais (Perfil e Lightbox) e Cards
 │   ├── data/
 │   │   ├── institution.js      # Dados da instituição e coordenação
+|   |   ├── developer.js        # Dados do desenvolvedor
 │   │   ├── stats.js            # Métricas e contadores de impacto
 │   │   ├── brandConcept.js     # Conceito e pilares da logomarca
 │   │   ├── timeline.js         # Linha do tempo histórica
