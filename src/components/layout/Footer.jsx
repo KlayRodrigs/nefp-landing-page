@@ -2,8 +2,10 @@ import React from 'react';
 import { institution } from '../../data/institution';
 import { developer } from '../../data/developer';
 import { fundingPartners } from '../../data/fundingPartners';
+import { brand } from '../../data/brand';
 import { NAV_LINKS } from '../../data/navigation';
 import { MapPin, Mail, Globe, ArrowUp } from 'lucide-react';
+import { getImageUrl } from '../../utils/getImageUrl'; 
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,7 +19,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl overflow-hidden bg-white p-1 shadow-md">
                 <img
-                  src="/images/brand/logo.png"
+                  src={getImageUrl(brand.logo)}
                   alt="NEFP Logo"
                   className="w-full h-full object-contain"
                 />

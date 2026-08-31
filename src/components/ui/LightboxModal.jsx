@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { getImageUrl } from '../../utils/getImageUrl';
 
 export function LightboxModal({ images, currentIndex, onClose, onPrev, onNext }) {
   if (currentIndex === null || !images[currentIndex]) return null;
@@ -37,7 +38,7 @@ export function LightboxModal({ images, currentIndex, onClose, onPrev, onNext })
         onClick={(e) => e.stopPropagation()}
       >
         <img
-          src={currentImage.src}
+          src={getImageUrl(currentImage.src)}
           alt={currentImage.title}
           className="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/10"
         />

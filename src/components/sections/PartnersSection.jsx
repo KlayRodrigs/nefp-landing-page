@@ -2,6 +2,7 @@ import React from 'react';
 import { fundingPartners } from '../../data/fundingPartners';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Award } from 'lucide-react';
+import { getImageUrl } from '../../utils/getImageUrl'; 
 
 export function PartnersSection() {
   return (
@@ -23,7 +24,7 @@ export function PartnersSection() {
               <div>
                 <div className="w-20 h-20 mx-auto rounded-2xl bg-white p-2 shadow-sm border border-slate-100 flex items-center justify-center mb-4">
                   <img
-                    src={partner.logo}
+                    src={getImageUrl(partner.logo)}
                     alt={partner.name}
                     className="max-w-full max-h-full object-contain"
                   />

@@ -3,6 +3,7 @@ import { gallery } from '../../data/gallery';
 import { SectionHeading } from '../ui/SectionHeading';
 import { LightboxModal } from '../ui/LightboxModal';
 import { Image as ImageIcon, ZoomIn } from 'lucide-react';
+import { getImageUrl } from '../../utils/getImageUrl'; 
 
 const CATEGORIES = ['Todos', 'Laboratório', 'Campo', 'Eventos'];
 
@@ -58,7 +59,7 @@ export function GallerySection() {
               className="group relative h-48 sm:h-56 rounded-2xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
             >
               <img
-                src={img.src}
+                src={getImageUrl(img.src)}
                 alt={img.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 loading="lazy"

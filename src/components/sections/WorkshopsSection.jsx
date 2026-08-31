@@ -3,6 +3,7 @@ import { workshops } from '../../data/workshops';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Badge } from '../ui/Badge';
 import { Calendar, MapPin, CheckCircle2 } from 'lucide-react';
+import { getImageUrl } from '../../utils/getImageUrl'; 
 
 export function WorkshopsSection() {
   return (
@@ -24,7 +25,7 @@ export function WorkshopsSection() {
               <div>
                 <div className="relative h-48 overflow-hidden bg-slate-100">
                   <img
-                    src={ws.image}
+                    src={getImageUrl(ws.image)}
                     alt={ws.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />

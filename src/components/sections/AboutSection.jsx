@@ -4,6 +4,8 @@ import { timeline } from '../../data/timeline';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Badge } from '../ui/Badge';
 import { Leaf, Cog, Sparkles, Clock } from 'lucide-react';
+import { getImageUrl } from '../../utils/getImageUrl'; 
+import { brand } from '../../data/brand';
 
 const pillarIcons = {
   Leaf,
@@ -28,7 +30,7 @@ export function AboutSection() {
           <div className="lg:col-span-5 flex flex-col items-center">
             <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl bg-gradient-to-tr from-emerald-50 via-white to-solar-50 p-6 shadow-xl border border-emerald-100 flex items-center justify-center group">
               <img
-                src="/images/brand/logo.png"
+                src={getImageUrl(brand.logo)}
                 alt="Logomarca do NEFP"
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
               />

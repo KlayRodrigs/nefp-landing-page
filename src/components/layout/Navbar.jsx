@@ -3,6 +3,8 @@ import { NAV_LINKS } from '../../data/navigation';
 import { Button } from '../ui/Button';
 import { Menu, X, Mail } from 'lucide-react';
 import { institution } from '../../data/institution';
+import { getImageUrl } from '../../utils/getImageUrl';
+import { brand } from '../../data/brand'; 
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,7 +45,7 @@ export function Navbar() {
         <a href="#inicio" className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md group-hover:scale-105 transition-transform bg-white p-1 border border-emerald-200/50">
             <img
-              src="/images/brand/logo.png"
+              src={getImageUrl(brand.logo)}
               alt="NEFP Logo"
               className="w-full h-full object-contain"
             />

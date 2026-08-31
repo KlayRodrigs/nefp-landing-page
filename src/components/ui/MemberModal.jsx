@@ -2,6 +2,7 @@ import React from 'react';
 import { X, ExternalLink, GraduationCap, BookOpen, Award, CheckCircle2 } from 'lucide-react';
 import { Badge } from './Badge';
 import { Button } from './Button';
+import { getImageUrl } from '../../utils/getImageUrl';
 
 export function MemberModal({ member, onClose }) {
   if (!member) return null;
@@ -25,7 +26,7 @@ export function MemberModal({ member, onClose }) {
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
             <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-4 border-white/30 shadow-xl shrink-0 bg-white">
               <img
-                src={member.image}
+                src={getImageUrl(member.image)}
                 alt={member.name}
                 className="w-full h-full object-cover object-center"
               />
