@@ -1,12 +1,13 @@
-import React from 'react';
-import { fundingPartners } from '../../data/fundingPartners';
 import { SectionHeading } from '../ui/SectionHeading';
+import { useFundingPartnersData } from '../../hooks/useSectionData';
 import { Award } from 'lucide-react';
 import { getImageUrl } from '../../utils/getImageUrl'; 
 
 export function PartnersSection() {
+  const { partners } = useFundingPartnersData();
+
   return (
-    <section className="py-16 md:py-24 bg-slate-50/80 border-t border-b border-slate-200/60">
+    <section id="parceiros" className="py-16 md:py-24 bg-slate-50/80 border-t border-b border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Apoio Institucional"
@@ -16,7 +17,7 @@ export function PartnersSection() {
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {fundingPartners.map((partner) => (
+          {partners.map((partner) => (
             <div
               key={partner.id}
               className="glass-card p-6 rounded-2xl flex flex-col justify-between text-center hover:border-emerald-300 transition-all duration-300"

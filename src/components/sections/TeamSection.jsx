@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { team } from '../../data/team';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useTeamData } from '../../hooks/useSectionData';
 import { SectionHeading } from '../ui/SectionHeading';
 import { MemberCard } from '../ui/MemberCard';
 import { MemberModal } from '../ui/MemberModal';
@@ -7,8 +7,10 @@ import { Users } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'todos', label: 'Todos os Membros' },
+  { id: 'coordenacao', label: 'Coordenação' },
   { id: 'doutorado', label: 'Doutores' },
   { id: 'doutorando', label: 'Doutorandos' },
+  { id: 'mestrado', label: 'Mestres' },
   { id: 'mestre', label: 'Mestres' },
   { id: 'mestrando', label: 'Mestrandos' },
   { id: 'graduacao', label: 'Graduação & PIBITI' },
@@ -16,19 +18,38 @@ const CATEGORIES = [
 ];
 
 export function TeamSection() {
+  const { team } = useTeamData();
   const [activeTab, setActiveTab] = useState('todos');
   const [selectedMember, setSelectedMember] = useState(null);
 
-  const filteredMembers = activeTab === 'todos'
-    ? team
-    : team.filter(m => m.category === activeTab);
+  // Filtra somente os membros cujo campo visivel é true (ou indefinido/padrão)
+  const visibleMembers = useMemo(() => {
+    return (team || []).filter((m) => {
+      if (m.visivel === undefined || m.visivel === null) return true;
+      if (typeof m.visivel === 'boolean') return m.visivel;
+      const v = String(m.visivel).trim().toLowerCase();
+      return v === 'true' || v === '1' || v === 'sim' || v === 'yes';
+    });
+  }, [team]);
 
-  // Só mantém categorias com pelo menos 1 membro (ou a aba "todos")
+  // Só mantém categorias com pelo menos 1 membro visível (além da aba "todos")
   const visibleCategories = useMemo(() => {
     return CATEGORIES.filter(
-      (cat) => cat.id === 'todos' || team.some((m) => m.category === cat.id)
+      (cat) => cat.id === 'todos' || visibleMembers.some((m) => m.category === cat.id)
     );
-  }, []);
+  }, [visibleMembers]);
+
+  // Se a aba ativa atual não existir mais nas categorias visíveis, volta para 'todos'
+  useEffect(() => {
+    if (activeTab !== 'todos' && !visibleCategories.some((c) => c.id === activeTab)) {
+      setActiveTab('todos');
+    }
+  }, [activeTab, visibleCategories]);
+
+  // Membros exibidos de acordo com a aba selecionada
+  const filteredMembers = activeTab === 'todos'
+    ? visibleMembers
+    : visibleMembers.filter((m) => m.category === activeTab);
 
   return (
     <section id="equipe" className="py-20 md:py-28 bg-white relative">
@@ -40,7 +61,7 @@ export function TeamSection() {
           subtitle="Pesquisadores, pós-graduandos e estudantes dedicados ao avanço da ciência e da tecnologia vegetal no Semiárido brasileiro."
         />
 
-        {/* Filter Tabs */}
+        {/* Filter Tabs - Apenas categorias com membros visíveis */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
           {visibleCategories.map((cat) => (
             <button
@@ -67,6 +88,12 @@ export function TeamSection() {
             />
           ))}
         </div>
+
+        {filteredMembers.length === 0 && (
+          <div className="text-center py-12 text-slate-500 text-sm">
+            Nenhum membro visível nesta categoria no momento.
+          </div>
+        )}
       </div>
 
       {/* Member Details Modal */}

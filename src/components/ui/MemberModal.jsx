@@ -29,6 +29,10 @@ export function MemberModal({ member, onClose }) {
                 src={getImageUrl(member.image)}
                 alt={member.name}
                 className="w-full h-full object-cover object-center"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.target.src = getImageUrl('/images/team/sem_foto_037.png');
+                }}
               />
             </div>
 

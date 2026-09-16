@@ -1,11 +1,14 @@
 import React from 'react';
-import { workshops } from '../../data/workshops';
+import { useWorkshopsData } from '../../hooks/useSectionData';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Badge } from '../ui/Badge';
 import { Calendar, MapPin, CheckCircle2 } from 'lucide-react';
-import { getImageUrl } from '../../utils/getImageUrl'; 
+
+import { getImageUrl } from '../../utils/getImageUrl';
 
 export function WorkshopsSection() {
+  const { workshops } = useWorkshopsData();
+
   return (
     <section id="eventos" className="py-20 md:py-28 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,9 +28,13 @@ export function WorkshopsSection() {
               <div>
                 <div className="relative h-48 overflow-hidden bg-slate-100">
                   <img
-                    src={getImageUrl(ws.image)}
+                    src={getImageUrl(ws.image, '/images/gallery/gallery_1.jpg')}
                     alt={ws.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.target.src = getImageUrl('/images/gallery/gallery_1.jpg');
+                    }}
                   />
                   <div className="absolute top-3 right-3">
                     <Badge variant="emerald" size="sm">
@@ -63,7 +70,7 @@ export function WorkshopsSection() {
                     Tópicos Abordados:
                   </span>
                   <div className="space-y-1">
-                    {ws.topics.map((t, idx) => (
+                    {(ws.topics || []).map((t, idx) => (
                       <div key={idx} className="flex items-center gap-1.5 text-xs text-slate-600">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                         <span>{t}</span>
