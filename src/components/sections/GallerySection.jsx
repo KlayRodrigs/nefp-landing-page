@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { gallery } from '../../data/gallery';
+import { useGalleryData } from '../../hooks/useSectionData';
 import { SectionHeading } from '../ui/SectionHeading';
 import { LightboxModal } from '../ui/LightboxModal';
 import { Image as ImageIcon, ZoomIn } from 'lucide-react';
-import { getImageUrl } from '../../utils/getImageUrl'; 
+
+import { getImageUrl } from '../../utils/getImageUrl';
 
 const CATEGORIES = ['Todos', 'Laboratório', 'Campo', 'Eventos'];
 
 export function GallerySection() {
+  const { gallery } = useGalleryData();
   const [selectedCat, setSelectedCat] = useState('Todos');
   const [currentIdx, setCurrentIdx] = useState(null);
 
@@ -63,6 +65,10 @@ export function GallerySection() {
                 alt={img.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 loading="lazy"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.target.src = getImageUrl('/images/gallery/gallery_1.jpg');
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
                 <span className="text-[10px] text-emerald-300 font-semibold uppercase tracking-wider">

@@ -41,6 +41,10 @@ export function LightboxModal({ images, currentIndex, onClose, onPrev, onNext })
           src={getImageUrl(currentImage.src)}
           alt={currentImage.title}
           className="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/10"
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            e.target.src = getImageUrl('/images/gallery/gallery_1.jpg');
+          }}
         />
         <div className="mt-4 text-center">
           <p className="text-white text-base md:text-lg font-medium">{currentImage.title}</p>

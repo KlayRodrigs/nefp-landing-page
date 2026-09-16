@@ -21,6 +21,7 @@ export function MemberCard({ member, onOpenModal }) {
               alt={member.name}
               className="w-full h-full object-cover object-center"
               loading="lazy"
+              referrerPolicy="no-referrer"
               onError={(e) => {
                 e.target.src = getImageUrl('/images/team/sem_foto_037.png');
               }}

@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { publications } from '../../data/publications';
+import { usePublicationsData } from '../../hooks/useSectionData';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Badge } from '../ui/Badge';
 import { Button } from '../ui/Button';
 import { BookOpen, Search, ExternalLink, Check, Copy } from 'lucide-react';
 
 export function PublicationsSection() {
+  const { publications } = usePublicationsData();
   const [searchTerm, setSearchTerm] = useState('');
   const [copiedId, setCopiedId] = useState(null);
 
   const filteredPubs = publications.filter((p) => {
-    const text = `${p.title} ${p.authors} ${p.journal} ${p.tags.join(' ')}`.toLowerCase();
+    const text = `${p.title || ''} ${p.authors || ''} ${p.journal || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
     return text.includes(searchTerm.toLowerCase());
   });
 
@@ -82,7 +83,7 @@ export function PublicationsSection() {
 
               <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100">
                 <div className="flex flex-wrap gap-1">
-                  {pub.tags.map((t, idx) => (
+                  {(pub.tags || []).map((t, idx) => (
                     <span
                       key={idx}
                       className="text-[10px] bg-slate-100 text-slate-600 font-medium px-2 py-0.5 rounded"

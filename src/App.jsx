@@ -25,10 +25,10 @@ export default function App() {
         <TeamSection />
         {/* <PublicationsSection />
         <WorkshopsSection />
-        <GallerySection />
         <OpportunitiesSection />
+        <ContactSection />
+        <GallerySection />*/} 
         <PartnersSection />
-        <ContactSection /> */}
       </main>
       <Footer />
       <ScrollToTop />
