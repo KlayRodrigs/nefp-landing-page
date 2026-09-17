@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageWithFallback } from "./imageShimmer";
+import { ImageWithFallback } from "./ImageShimmer";
 import { Badge } from './Badge';
 import { ExternalLink, ChevronRight, Award } from 'lucide-react';
 import { getImageUrl } from '../../utils/getImageUrl';
