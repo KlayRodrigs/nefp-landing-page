@@ -23,12 +23,12 @@ export default function App() {
         <AboutSection />
         <ResearchSection />
         <TeamSection />
-        {/* <PublicationsSection />
+        <PartnersSection />
+        {/* <PublicationsSection /> 
         <WorkshopsSection />
         <OpportunitiesSection />
         <ContactSection />
-        <GallerySection />*/} 
-        <PartnersSection />
+        <GallerySection /> */}
       </main>
       <Footer />
       <ScrollToTop />

@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { usePublicationsData } from '../../hooks/useSectionData';
+
+import { SHEETS_CONFIG } from '../../config/sheets';
+import { useGoogleSheetsData } from '../../hooks/useSectionData';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Badge } from '../ui/Badge';
 import { Button } from '../ui/Button';
 import { BookOpen, Search, ExternalLink, Check, Copy } from 'lucide-react';
 
 export function PublicationsSection() {
-  const { publications } = usePublicationsData();
+  const { publications } = useGoogleSheetsData({
+      tabName: SHEETS_CONFIG.TABS.PUBLICATIONS,
+      dataName: 'publications',
+    });
   const [searchTerm, setSearchTerm] = useState('');
   const [copiedId, setCopiedId] = useState(null);
 
@@ -48,7 +53,7 @@ export function PublicationsSection() {
 
         {/* Publications List */}
         <div className="space-y-4 max-w-4xl mx-auto">
-          {filteredPubs.map((pub) => (
+          {(filteredPubs ?? []).map((pub) => (
             <div
               key={pub.id}
               className="glass-card p-6 rounded-2xl transition-all duration-300 hover:border-emerald-300"

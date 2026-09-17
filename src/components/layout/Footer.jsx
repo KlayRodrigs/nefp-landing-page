@@ -1,14 +1,37 @@
 import React from 'react';
+import { ShimmerCircularImage } from "react-shimmer-effects";
 import { institution } from '../../data/institution';
 import { developer } from '../../data/developer';
-import { fundingPartners } from '../../data/fundingPartners';
+
+import { SHEETS_CONFIG } from '../../config/sheets';
+import { useGoogleSheetsData } from '../../hooks/useSectionData';
+
 import { brand } from '../../data/brand';
 import { NAV_LINKS } from '../../data/navigation';
 import { MapPin, Mail, Globe, ArrowUp } from 'lucide-react';
-import { getImageUrl } from '../../utils/getImageUrl'; 
+import { getImageUrl } from '../../utils/getImageUrl';
+
+
+const renderImageShimmer = (param, size) => {
+  if (param === null || param === undefined || param === '') {
+    return <ShimmerCircularImage size={size} />;
+  } else {
+    return (
+      <img
+        src={getImageUrl(brand.logo)}
+        alt="NEFP Logo"
+        className="w-full h-full object-contain"
+      />
+    );
+  }
+};
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { partners } = useGoogleSheetsData({
+    tabName: SHEETS_CONFIG.TABS.PARTNERS,
+    dataName: 'partners',
+  });
 
   return (
     <footer className="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
@@ -18,11 +41,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl overflow-hidden bg-white p-1 shadow-md">
-                <img
-                  src={getImageUrl(brand.logo)}
-                  alt="NEFP Logo"
-                  className="w-full h-full object-contain"
-                />
+                {renderImageShimmer(brand.logo, 40)}
               </div>
               <div>
                 <span className="font-bold text-white text-lg tracking-tight">NEFP</span>
@@ -64,7 +83,7 @@ export function Footer() {
               Fomento & Parcerias
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
-              {fundingPartners.map((p) => (
+              {(partners ?? []).map((p) => (
                 <li key={p.id} className="flex items-start gap-1.5">
                   <span className="text-emerald-400 font-bold">✓</span>
                   <span>

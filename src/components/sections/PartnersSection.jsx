@@ -1,10 +1,16 @@
+import React, { useState, useMemo, useEffect } from 'react';
 import { SectionHeading } from '../ui/SectionHeading';
-import { useFundingPartnersData } from '../../hooks/useSectionData';
+
+import { useGoogleSheetsData } from '../../hooks/useSectionData';
+import { SHEETS_CONFIG } from '../../config/sheets';
 import { Award } from 'lucide-react';
-import { getImageUrl } from '../../utils/getImageUrl'; 
+import { getImageUrl } from '../../utils/getImageUrl';
 
 export function PartnersSection() {
-  const { partners } = useFundingPartnersData();
+  const { partners } = useGoogleSheetsData({
+    tabName: SHEETS_CONFIG.TABS.PARTNERS,
+    dataName: 'partners',
+  });
 
   return (
     <section id="parceiros" className="py-16 md:py-24 bg-slate-50/80 border-t border-b border-slate-200/60">
@@ -17,7 +23,7 @@ export function PartnersSection() {
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {partners.map((partner) => (
+          {(partners ?? []).map((partner) => (
             <div
               key={partner.id}
               className="glass-card p-6 rounded-2xl flex flex-col justify-between text-center hover:border-emerald-300 transition-all duration-300"

@@ -1,5 +1,8 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useTeamData } from '../../hooks/useSectionData';
+
+import { SHEETS_CONFIG } from '../../config/sheets';
+import { useGoogleSheetsData } from '../../hooks/useSectionData';
+
 import { SectionHeading } from '../ui/SectionHeading';
 import { MemberCard } from '../ui/MemberCard';
 import { MemberModal } from '../ui/MemberModal';
@@ -18,7 +21,11 @@ const CATEGORIES = [
 ];
 
 export function TeamSection() {
-  const { team } = useTeamData();
+  const { team } = useGoogleSheetsData({
+    tabName: SHEETS_CONFIG.TABS.TEAM,
+    dataName: 'team',
+  });
+
   const [activeTab, setActiveTab] = useState('todos');
   const [selectedMember, setSelectedMember] = useState(null);
 
@@ -67,11 +74,10 @@ export function TeamSection() {
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
-                activeTab === cat.id
-                  ? 'bg-nefp-600 text-white shadow-md shadow-nefp-600/20'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200/80 hover:text-slate-900'
-              }`}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${activeTab === cat.id
+                ? 'bg-nefp-600 text-white shadow-md shadow-nefp-600/20'
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200/80 hover:text-slate-900'
+                }`}
             >
               {cat.label}
             </button>

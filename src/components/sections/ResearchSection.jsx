@@ -23,7 +23,7 @@ export function ResearchSection() {
           ))}
         </div>
 
-        {/* Featured Projects Highlight (PitayaQual / BEXT) */}
+        {/* Featured Projects Highlight (PitayaQual / BEXT)
         <div className="bg-gradient-to-br from-nefp-900 via-slate-900 to-emerald-950 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold border border-emerald-400/30 mb-4">
@@ -54,8 +54,8 @@ export function ResearchSection() {
                 <span className="text-emerald-400 font-bold">{projects[0].status}</span>
               </div>
             </div>
-          </div>
-        </div>
+          </div> 
+        </div> */}
       </div>
     </section>
   );

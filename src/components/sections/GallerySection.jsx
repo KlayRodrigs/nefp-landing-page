@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useGalleryData } from '../../hooks/useSectionData';
+import { SHEETS_CONFIG } from '../../config/sheets';
+import { useGoogleSheetsData } from '../../hooks/useSectionData';
 import { SectionHeading } from '../ui/SectionHeading';
 import { LightboxModal } from '../ui/LightboxModal';
 import { Image as ImageIcon, ZoomIn } from 'lucide-react';
@@ -9,7 +10,10 @@ import { getImageUrl } from '../../utils/getImageUrl';
 const CATEGORIES = ['Todos', 'Laboratório', 'Campo', 'Eventos'];
 
 export function GallerySection() {
-  const { gallery } = useGalleryData();
+  const { gallery } = useGoogleSheetsData({
+    tabName: SHEETS_CONFIG.TABS.GALLERY,
+    dataName: 'gallery',
+  });
   const [selectedCat, setSelectedCat] = useState('Todos');
   const [currentIdx, setCurrentIdx] = useState(null);
 
@@ -54,7 +58,7 @@ export function GallerySection() {
 
         {/* Photos Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredImages.map((img, index) => (
+          {(filteredImages ?? []).map((img, index) => (
             <div
               key={img.id}
               onClick={() => setCurrentIdx(index)}
