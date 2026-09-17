@@ -29,7 +29,7 @@ export function PartnersSection() {
               className="glass-card p-6 rounded-2xl flex flex-col justify-between text-center hover:border-emerald-300 transition-all duration-300"
             >
               <div>
-                <div className="w-20 h-20 mx-auto rounded-2xl bg-white p-2 shadow-sm border border-slate-100 flex items-center justify-center mb-4">
+                <div className="w-60 h-30 mx-auto rounded-2xl bg-white p-2 shadow-sm border border-slate-100 flex items-center justify-center mb-4">
                   <img
                     src={getImageUrl(partner.logo)}
                     alt={partner.name}

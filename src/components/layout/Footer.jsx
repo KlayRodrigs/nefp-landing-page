@@ -40,7 +40,7 @@ export function Footer() {
           {/* Col 1: Brand & Identity */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white p-1 shadow-md">
+              <div className="w-14 h-14 rounded-xl overflow-hidden bg-white p-1 shadow-md">
                 {renderImageShimmer(brand.logo, 40)}
               </div>
               <div>
