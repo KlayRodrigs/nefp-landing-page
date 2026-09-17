@@ -17,7 +17,7 @@ export function ImageWithFallback({ src, size, alt, className }) {
         }
         return prev;
       });
-    }, 10000);
+    }, 15000);
 
     return () => clearTimeout(timeout);
   }, [src]);

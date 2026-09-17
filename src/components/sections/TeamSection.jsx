@@ -6,7 +6,7 @@ import { useGoogleSheetsData } from '../../hooks/useSectionData';
 import { SectionHeading } from '../ui/SectionHeading';
 import { MemberCard } from '../ui/MemberCard';
 import { MemberModal } from '../ui/MemberModal';
-import { Users } from 'lucide-react';
+import { Users, ChevronDown } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'todos', label: 'Todos os Membros' },
@@ -20,6 +20,8 @@ const CATEGORIES = [
   { id: 'ex-membros', label: 'Ex-Membros' },
 ];
 
+const PAGE_SIZE = 6;
+
 export function TeamSection() {
   const { team } = useGoogleSheetsData({
     tabName: SHEETS_CONFIG.TABS.TEAM,
@@ -28,6 +30,7 @@ export function TeamSection() {
 
   const [activeTab, setActiveTab] = useState('todos');
   const [selectedMember, setSelectedMember] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   // Filtra somente os membros cujo campo visivel é true (ou indefinido/padrão)
   const visibleMembers = useMemo(() => {
@@ -53,10 +56,19 @@ export function TeamSection() {
     }
   }, [activeTab, visibleCategories]);
 
+  // Sempre que trocar de aba, reseta a paginação pra 6 itens
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [activeTab]);
+
   // Membros exibidos de acordo com a aba selecionada
   const filteredMembers = activeTab === 'todos'
     ? visibleMembers
     : visibleMembers.filter((m) => m.category === activeTab);
+
+  // Aplica o corte de paginação
+  const membersToShow = filteredMembers.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredMembers.length;
 
   return (
     <section id="equipe" className="py-20 md:py-28 bg-white relative">
@@ -86,7 +98,7 @@ export function TeamSection() {
 
         {/* Team Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {filteredMembers.map((member) => (
+          {membersToShow.map((member) => (
             <MemberCard
               key={member.id}
               member={member}
@@ -98,6 +110,19 @@ export function TeamSection() {
         {filteredMembers.length === 0 && (
           <div className="text-center py-12 text-slate-500 text-sm">
             Nenhum membro visível nesta categoria no momento.
+          </div>
+        )}
+
+        {/* Botão Ver Mais */}
+        {hasMore && (
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+              className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium bg-slate-100 text-slate-700 hover:bg-slate-200/80 transition-all duration-200 cursor-pointer"
+            >
+              Ver mais
+              <ChevronDown size={16} />
+            </button>
           </div>
         )}
       </div>
