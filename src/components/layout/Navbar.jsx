@@ -43,7 +43,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo & Title */}
         <a href="#inicio" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md group-hover:scale-105 transition-transform bg-white p-1 border border-emerald-200/50">
+          <div className="w-14 h-14 rounded-xl overflow-hidden shadow-md group-hover:scale-105 transition-transform bg-white p-1 border border-emerald-200/50">
             <img
               src={getImageUrl(brand.logo)}
               alt="NEFP Logo"
