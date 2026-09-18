@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { SHEETS_CONFIG } from '../../config/sheets';
+import { isUndefinedNullOrEmpty } from '../../utils/ternary';
 import { useGoogleSheetsData } from '../../hooks/useSectionData';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Badge } from '../ui/Badge';
@@ -12,10 +13,11 @@ export function PublicationsSection() {
       tabName: SHEETS_CONFIG.TABS.PUBLICATIONS,
       dataName: 'publications',
     });
+
   const [searchTerm, setSearchTerm] = useState('');
   const [copiedId, setCopiedId] = useState(null);
 
-  const filteredPubs = publications.filter((p) => {
+  const filteredPubs = publications?.filter((p) => {
     const text = `${p.title || ''} ${p.authors || ''} ${p.journal || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
     return text.includes(searchTerm.toLowerCase());
   });
@@ -28,6 +30,7 @@ export function PublicationsSection() {
   };
 
   return (
+    isUndefinedNullOrEmpty(publications) ? null : (
     <section id="publicacoes" className="py-20 md:py-28 bg-slate-50/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -144,5 +147,5 @@ export function PublicationsSection() {
         </div>
       </div>
     </section>
-  );
+  ));
 }

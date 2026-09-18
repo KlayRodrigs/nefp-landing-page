@@ -8,5 +8,7 @@ export const SHEETS_CONFIG = {
     WORKSHOPS: 'Eventos',
     GALLERY: 'Galeria',
     PARTNERS: 'Parceiros',
+    RESEARCH_LINES: 'Linhas de pesquisa',
+    AVAILABLE_PROGRAMS: 'Programas disponiveis'
   }
 };
