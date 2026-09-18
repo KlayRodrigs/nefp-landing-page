@@ -24,11 +24,12 @@ export default function App() {
         <ResearchSection />
         <TeamSection />
         <PartnersSection />
-        {/* <PublicationsSection /> 
-        <WorkshopsSection />
+        {/*<WorkshopsSection />
+        <PublicationsSection /> 
+        <GallerySection /> 
         <OpportunitiesSection />
         <ContactSection />
-        <GallerySection /> */}
+        */}
       </main>
       <Footer />
       <ScrollToTop />

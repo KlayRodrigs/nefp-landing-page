@@ -1,12 +1,21 @@
 import React from 'react';
-import { researchLines } from '../../data/researchLines';
+import { SHEETS_CONFIG } from '../../config/sheets';
+import { useGoogleSheetsData } from '../../hooks/useSectionData';
+
 import { projects } from '../../data/projects';
+import { isUndefinedNullOrEmpty } from '../../utils/ternary';
 import { SectionHeading } from '../ui/SectionHeading';
 import { ProjectCard } from '../ui/ProjectCard';
 import { Microscope, Sparkles } from 'lucide-react';
 
 export function ResearchSection() {
+  const { researchLines } = useGoogleSheetsData({
+      tabName: SHEETS_CONFIG.TABS.RESEARCH_LINES,
+      dataName: 'researchLines',
+    });
+
   return (
+    isUndefinedNullOrEmpty(researchLines) ? null : (
     <section id="pesquisa" className="py-20 md:py-28 bg-slate-50/70 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -18,7 +27,7 @@ export function ResearchSection() {
 
         {/* Research Lines Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
-          {researchLines.map((line) => (
+          {(researchLines ?? []).map((line) => (
             <ProjectCard key={line.id} research={line} />
           ))}
         </div>
@@ -58,5 +67,5 @@ export function ResearchSection() {
         </div> */}
       </div>
     </section>
-  );
+  ));
 }

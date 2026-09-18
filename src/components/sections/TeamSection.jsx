@@ -3,6 +3,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { SHEETS_CONFIG } from '../../config/sheets';
 import { useGoogleSheetsData } from '../../hooks/useSectionData';
 
+import { isUndefinedNullOrEmpty } from '../../utils/ternary';
 import { SectionHeading } from '../ui/SectionHeading';
 import { MemberCard } from '../ui/MemberCard';
 import { MemberModal } from '../ui/MemberModal';
@@ -71,6 +72,7 @@ export function TeamSection() {
   const hasMore = visibleCount < filteredMembers.length;
 
   return (
+    isUndefinedNullOrEmpty(team) ? null : (
     <section id="equipe" className="py-20 md:py-28 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -135,5 +137,5 @@ export function TeamSection() {
         />
       )}
     </section>
-  );
+  ));
 }
