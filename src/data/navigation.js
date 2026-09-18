@@ -8,5 +8,4 @@ export const NAV_LINKS = [
   // { id: 'eventos', label: 'Eventos', href: '#eventos' },
   // { id: 'galeria', label: 'Galeria', href: '#galeria' },
   // { id: 'oportunidades', label: 'Oportunidades', href: '#oportunidades' },
-  // { id: 'contato', label: 'Contato', href: '#contato' },
 ];

@@ -1,6 +1,7 @@
 export const brandConcept = {
   title: 'Conceito da Logomarca do NEFP',
   subtitle: 'A união entre a natureza do Semiárido e o rigor da engenharia científica',
+  logo: "/images/brand/logo.png",
   description: 'A logomarca atual do Núcleo de Estudos em Fisiologia e Pós-Colheita de Frutas, Hortaliças e Flores (NEFP) expressa a identidade e a evolução de suas linhas de pesquisa ao longo dos anos.',
   pillars: [
     {

@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { institution } from '../../data/institution';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
-import { Mail, MapPin, Send, CheckCircle2, User } from 'lucide-react';
-import { getImageUrl } from '../../utils/getImageUrl'; 
+import { Mail, MapPin, Send, CheckCircle2, User, Loader2, AlertCircle } from 'lucide-react';
+import { getImageUrl } from '../../utils/getImageUrl';
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID_NOTIFY = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_NOTIFY;
+const EMAILJS_TEMPLATE_ID_AUTOREPLY = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AUTOREPLY;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -13,13 +19,46 @@ export function ContactSection() {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    
-    // Simulate submission
-    setSubmitted(true);
+
+    setSending(true);
+    setSendError(null);
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      to_email: institution.email,
+    };
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID_NOTIFY,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID_AUTOREPLY,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Erro ao enviar e-mail:', err);
+      setSendError('Não foi possível enviar sua mensagem. Tente novamente ou nos envie um e-mail direto.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -175,15 +214,30 @@ export function ContactSection() {
                     />
                   </div>
 
+                  {sendError && (
+                    <div className="flex items-start gap-2 text-red-600 text-sm bg-red-50 border border-red-100 rounded-xl p-3">
+                      <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                      <span>{sendError}</span>
+                    </div>
+                  )}
+
                   <Button
                     type="submit"
                     variant="primary"
                     size="lg"
-                    icon={Send}
+                    icon={sending ? undefined : Send}
                     iconPosition="right"
+                    disabled={sending}
                     className="w-full"
                   >
-                    Enviar Mensagem
+                    {sending ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Enviando...
+                      </span>
+                    ) : (
+                      'Enviar Mensagem'
+                    )}
                   </Button>
                 </form>
               )}

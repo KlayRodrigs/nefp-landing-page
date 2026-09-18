@@ -71,7 +71,7 @@ export function OpportunitiesSection() {
             </div>
             <Button
               as="a"
-              href={`mailto:${institution.email}`}
+              href="#contato"
               variant="solar"
               size="lg"
               icon={ArrowRight}

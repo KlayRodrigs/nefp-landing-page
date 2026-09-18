@@ -4,7 +4,7 @@ import { Button } from '../ui/Button';
 import { Menu, X, Mail } from 'lucide-react';
 import { institution } from '../../data/institution';
 import { getImageUrl } from '../../utils/getImageUrl';
-import { brand } from '../../data/brand'; 
+import { brandConcept } from '../../data/brandConcept'; 
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,7 +45,7 @@ export function Navbar() {
         <a href="#inicio" className="flex items-center gap-3 group">
           <div className="w-14 h-14 rounded-xl overflow-hidden shadow-md group-hover:scale-105 transition-transform bg-white p-1 border border-emerald-200/50">
             <img
-              src={getImageUrl(brand.logo)}
+              src={getImageUrl(brandConcept.logo)}
               alt="NEFP Logo"
               className="w-full h-full object-contain"
             />
@@ -89,7 +89,7 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <Button
             as="a"
-            href={`mailto:${institution.email}`}
+            href="#contato"
             variant="primary"
             size="sm"
             icon={Mail}
@@ -129,7 +129,7 @@ export function Navbar() {
             <div className="pt-3 mt-2 border-t border-slate-100">
               <Button
                 as="a"
-                href={`mailto:${institution.email}`}
+                href="#contato"
                 onClick={() => setMobileMenuOpen(false)}
                 variant="primary"
                 size="md"

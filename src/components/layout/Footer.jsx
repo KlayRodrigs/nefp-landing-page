@@ -6,7 +6,7 @@ import { developer } from '../../data/developer';
 import { SHEETS_CONFIG } from '../../config/sheets';
 import { useGoogleSheetsData } from '../../hooks/useSectionData';
 
-import { brand } from '../../data/brand';
+import { brandConcept } from '../../data/brandConcept';
 import { NAV_LINKS } from '../../data/navigation';
 import { MapPin, Mail, Globe, ArrowUp } from 'lucide-react';
 import { getImageUrl } from '../../utils/getImageUrl';
@@ -18,7 +18,7 @@ const renderImageShimmer = (param, size) => {
   } else {
     return (
       <img
-        src={getImageUrl(brand.logo)}
+        src={getImageUrl(brandConcept.logo)}
         alt="NEFP Logo"
         className="w-full h-full object-contain"
       />
@@ -41,7 +41,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-14 h-14 rounded-xl overflow-hidden bg-white p-1 shadow-md">
-                {renderImageShimmer(brand.logo, 40)}
+                {renderImageShimmer(brandConcept.logo, 40)}
               </div>
               <div>
                 <span className="font-bold text-white text-lg tracking-tight">NEFP</span>
