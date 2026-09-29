@@ -7,5 +7,5 @@ export const institution = {
   address: 'Av. Gregório Ferraz Nogueira, s/n, José Tomé de Souza Ramos, CEP 56909-535',
   email: 'nefp.uast.ufrpe@gmail.com',
   coordinator: 'Prof. Dr. Adriano do Nascimento Simões',
-  cnpqLevel: 'Bolsista de Produtividade em Pesquisa do CNPq - Nível 2'
+  cnpqLevel: 'Bolsista de Produtividade em Pesquisa do CNPq - Nível B'
 };

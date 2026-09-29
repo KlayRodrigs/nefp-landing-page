@@ -10,29 +10,34 @@ import { Microscope, Sparkles } from 'lucide-react';
 
 export function ResearchSection() {
   const { researchLines } = useGoogleSheetsData({
-      tabName: SHEETS_CONFIG.TABS.RESEARCH_LINES,
-      dataName: 'researchLines',
-    });
+    tabName: SHEETS_CONFIG.TABS.RESEARCH_LINES,
+    dataName: 'researchLines',
+  });
+  const visible = researchLines?.filter((r) => r.visivel !== false);
 
   return (
-    isUndefinedNullOrEmpty(researchLines) ? null : (
-    <section id="pesquisa" className="py-20 md:py-28 bg-slate-50/70 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          badge="Inovação & Ciência"
-          badgeIcon={Microscope}
-          title="Linhas de Pesquisa e Projetos de Destaque"
-          subtitle="Abordagens científicas integradas que conectam fisiologia vegetal, biopolímeros sustentáveis e inteligência artificial aplicada ao agronegócio."
-        />
+    isUndefinedNullOrEmpty(visible) ? null : (
+      <section id="pesquisa" className="py-20 md:py-28 bg-slate-50/70 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Inovação & Ciência"
+            badgeIcon={Microscope}
+            title="Linhas de Pesquisa e Projetos de Destaque"
+            subtitle="Abordagens científicas integradas que conectam fisiologia vegetal, biopolímeros sustentáveis e inteligência artificial aplicada ao agronegócio."
+          />
 
-        {/* Research Lines Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
-          {(researchLines ?? []).map((line) => (
-            <ProjectCard key={line.id} research={line} />
-          ))}
-        </div>
+          {/* Research Lines Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
+            {visible.map((research, i) => (
+              <ProjectCard
+                key={research.id}
+                research={research}
+                index={i}
+              />
+            ))}
+          </div>
 
-        {/* Featured Projects Highlight (PitayaQual / BEXT)
+          {/* Featured Projects Highlight (PitayaQual / BEXT)
         <div className="bg-gradient-to-br from-nefp-900 via-slate-900 to-emerald-950 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold border border-emerald-400/30 mb-4">
@@ -65,7 +70,7 @@ export function ResearchSection() {
             </div>
           </div> 
         </div> */}
-      </div>
-    </section>
-  ));
+        </div>
+      </section>
+    ));
 }
