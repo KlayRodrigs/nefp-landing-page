@@ -57,35 +57,41 @@ export function GallerySection() {
           </div>
 
           {/* Photos Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {(filteredImages ?? []).map((img, index) => (
-              <div
-                key={img.id}
-                onClick={() => setCurrentIdx(index)}
-                className="group relative h-48 sm:h-56 rounded-2xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
-              >
-                <img
-                  src={getImageUrl(img.src)}
-                  alt={img.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    e.target.src = getImageUrl('/images/gallery/gallery_1.jpg');
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
-                  <span className="text-[10px] text-emerald-300 font-semibold uppercase tracking-wider">
-                    {img.category}
-                  </span>
-                  <p className="text-xs font-medium line-clamp-2 mt-0.5">{img.title}</p>
-                  <div className="absolute top-3 right-3 p-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                    <ZoomIn className="w-4 h-4" />
+          {(filteredImages ?? []).length === 0 ? (
+            <div className="text-center py-12 text-slate-500 text-sm sm:text-base">
+              Nenhuma imagem disponível nesta categoria por enquanto.
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {(filteredImages ?? []).map((img, index) => (
+                <div
+                  key={img.id}
+                  onClick={() => setCurrentIdx(index)}
+                  className="group relative h-48 sm:h-56 rounded-2xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                >
+                  <img
+                    src={getImageUrl(img.src)}
+                    alt={img.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.target.src = getImageUrl('/images/gallery/gallery_1.jpg');
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
+                    <span className="text-[10px] text-emerald-300 font-semibold uppercase tracking-wider">
+                      {img.category}
+                    </span>
+                    <p className="text-xs font-medium line-clamp-2 mt-0.5">{img.title}</p>
+                    <div className="absolute top-3 right-3 p-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white">
+                      <ZoomIn className="w-4 h-4" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Lightbox Modal */}

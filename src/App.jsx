@@ -23,9 +23,9 @@ export default function App() {
         <AboutSection />
         <ResearchSection />
         <TeamSection />
-        <PartnersSection />
         {/* <PublicationsSection />  */}
-        {/* <GallerySection />  */}
+        <GallerySection /> 
+        <PartnersSection />
         {/* <OpportunitiesSection /> */}
         {/* <WorkshopsSection /> */}
         <ContactSection />

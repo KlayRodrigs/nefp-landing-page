@@ -3,9 +3,9 @@ export const NAV_LINKS = [
   { id: 'sobre', label: 'História & Marca', href: '#sobre' },
   { id: 'pesquisa', label: 'Linhas de Pesquisa', href: '#pesquisa' },
   { id: 'equipe', label: 'Equipe', href: '#equipe' },
+  { id: 'galeria', label: 'Galeria', href: '#galeria' },
   { id: 'parceiros', label: 'Parceiros', href: '#parceiros' },
   // { id: 'publicacoes', label: 'Publicações', href: '#publicacoes' },
   // { id: 'eventos', label: 'Eventos', href: '#eventos' },
-  // { id: 'galeria', label: 'Galeria', href: '#galeria' },
   // { id: 'oportunidades', label: 'Oportunidades', href: '#oportunidades' },
 ];
